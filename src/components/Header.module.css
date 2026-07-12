@@ -1,0 +1,177 @@
+/* ── Header shell ────────────────────────────────────────── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  width: 100%;
+  min-height: 120px;
+  overflow: hidden;
+  isolation: isolate;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ── Aurora gradient layer ───────────────────────────────── */
+.aurora {
+  position: absolute;
+  inset: -60%;
+  background: conic-gradient(
+    from 0deg at 50% 60%,
+    var(--color-accent-900)   0deg,
+    var(--color-cyan-600)    60deg,
+    var(--color-accent-700)  120deg,
+    var(--color-rose-600)    180deg,
+    var(--color-accent-500)  240deg,
+    var(--color-cyan-500)    300deg,
+    var(--color-accent-900)  360deg
+  );
+  animation:
+    rotate-aurora 12s linear infinite,
+    aurora-pulse  6s ease-in-out infinite;
+  will-change: transform;
+  border-radius: var(--radius-full);
+}
+
+/* ── Dark scrim ──────────────────────────────────────────── */
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(13, 13, 15, 0.82) 0%,
+    rgba(13, 13, 15, 0.72) 50%,
+    rgba(13, 13, 15, 0.88) 100%
+  );
+  backdrop-filter: blur(0px);
+}
+
+/* ── Inner content ───────────────────────────────────────── */
+.inner {
+  position: relative;
+  z-index: var(--z-raised);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: var(--space-3) var(--space-2);
+  min-height: 120px;
+}
+
+@media (min-width: 640px) {
+  .inner {
+    padding: var(--space-3) var(--space-3);
+  }
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    padding: var(--space-3) var(--space-4);
+  }
+}
+
+/* ── Brand block ─────────────────────────────────────────── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.logoMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-500),
+    var(--color-cyan-500)
+  );
+  box-shadow: var(--shadow-glow-accent);
+  font-size: var(--text-lg);
+  flex-shrink: 0;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.appTitle {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+  /* Gradient text for signature moment */
+  background: linear-gradient(
+    90deg,
+    var(--color-text-primary) 0%,
+    var(--color-accent-300)   60%,
+    var(--color-cyan-300)     100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dateLabel {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Stats row ───────────────────────────────────────────── */
+.statsRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ── Stat pill ───────────────────────────────────────────── */
+.statPill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-1) var(--space-2);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  min-width: 72px;
+  transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+.statPill:hover {
+  border-color: var(--color-border-hover);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.statValue {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+  animation: number-roll 0.4s ease both;
+}
+
+.statTotal {
+  font-size: var(--text-base);
+  font-weight: var(--weight-normal);
+  color: var(--color-text-muted);
+}
+
+.statLabel {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
