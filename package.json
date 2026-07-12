@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "node run-tests.mjs"
   },
   "dependencies": {
     "date-fns": "^3.6.0",
