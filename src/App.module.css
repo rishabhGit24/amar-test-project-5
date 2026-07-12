@@ -1,0 +1,13 @@
+.main {
+  /* Entrance animation for page content */
+  animation: fade-up 0.4s ease both;
+  animation-delay: 80ms;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+  gap: var(--space-2);
+}
